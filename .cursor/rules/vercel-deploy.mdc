@@ -1,0 +1,7 @@
+---
+description: Deploy applications and websites to Vercel instantly. Triggered by "deploy my app", "deploy this to production", "push this live", or "deploy and give me the link".
+globs: ["**/*"]
+---
+# Vercel Deployment
+
+Deploy applications and websites to Vercel instantly.

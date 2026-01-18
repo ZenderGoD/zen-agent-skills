@@ -1,0 +1,14 @@
+{
+  "name": "zen-agent-skills",
+  "version": "1.0.0",
+  "description": "Optimized Cursor rules for React, Vercel, and Web Design",
+  "type": "module",
+  "bin": {
+    "zen-agent-skills": "./bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    ".cursor/rules/"
+  ],
+  "license": "MIT"
+}
