@@ -1,0 +1,24 @@
+---
+description: Create distinctive, production-grade frontend interfaces with high design quality. Triggered by "build a component", "design a page", "create an interface", or "improve my UI aesthetics".
+globs: ["**/*.tsx", "**/*.jsx", "**/*.html", "**/*.css"]
+---
+# Claude Frontend Aesthetic Guidelines
+
+Focus on creating distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics.
+
+## Design Thinking
+1. **Purpose**: What problem does this solve?
+2. **Tone**: Commit to a BOLD aesthetic (brutally minimal, maximalist chaos, retro-futuristic, etc.).
+3. **Differentiation**: What makes this UNFORGETTABLE?
+
+## Core Guidelines
+- **Typography**: Choose unique, characterful fonts. Pair a distinctive display font with a refined body font.
+- **Color**: Commit to a cohesive theme with sharp accents.
+- **Motion**: Use animations (CSS or Motion library) for high-impact moments (staggered reveals, scroll-triggering).
+- **Spatial Composition**: Unexpected layouts, asymmetry, negative space, or controlled density.
+- **Backgrounds**: Add depth with textures (gradient meshes, noise, geometric patterns, grain overlays).
+
+## Avoid "AI Slop"
+- Generic font families (Inter, Roboto).
+- Cliched color schemes (purple gradients on white).
+- Predictable, cookie-cutter layouts.
