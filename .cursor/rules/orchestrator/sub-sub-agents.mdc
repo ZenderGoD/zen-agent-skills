@@ -1,0 +1,28 @@
+---
+description: Hierarchical sub-sub-agent system for specialized sub-tasks. Enables deeper specialization within agent domains.
+globs: ["**/*"]
+---
+
+# Sub-Sub-Agent System
+
+Enable hierarchical agent specialization for deeper expertise in sub-domains.
+
+## Concept
+
+Sub-sub-agents are specialized versions of main agents that inherit parent context and focus on specific sub-domains.
+
+**Syntax:**
+```
+/parent-agent:specialization
+```
+
+## Usage Examples
+
+- `/reviewer:performance` → Performance-focused review
+- `/reviewer:security` → Security-focused review
+- `/architect:database` → Database architecture
+- `/architect:api` → API architecture
+
+## Agent Growth
+
+Sub-sub-agents evolve over time by learning successful approaches in their specialization.

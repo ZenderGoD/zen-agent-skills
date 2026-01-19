@@ -1,0 +1,30 @@
+name: bug-fix
+description: Systematic bug investigation and resolution workflow
+version: 1.0.0
+
+steps:
+  - id: reproduction
+    agent: debugger
+    task: "Analyze the issue and create a reproduction case for: {userRequest}"
+    outputs: [root-cause, reproduction-script]
+
+  - id: fix-implementation
+    agent: implementer
+    task: "Implement a fix for the root cause identified in {reproduction.outputs.root-cause}"
+    dependsOn: [reproduction]
+    outputs: [fix-details]
+
+  - id: review
+    agent: reviewer:security
+    task: "Review the fix for potential security side-effects"
+    dependsOn: [fix-implementation]
+
+  - id: testing
+    agent: test-runner
+    task: "Verify the fix with tests and ensure no regressions"
+    dependsOn: [fix-implementation]
+
+  - id: verification
+    agent: verifier
+    task: "Confirm the reproduction case no longer fails"
+    dependsOn: [testing]

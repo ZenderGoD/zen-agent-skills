@@ -1,0 +1,35 @@
+---
+description: Agent growth and evolution system. Enables agents to learn, adapt, and improve over time based on usage patterns and feedback.
+globs: ["**/*"]
+---
+
+# Agent Growth & Evolution System
+
+Agents learn and improve over time, becoming more capable and specialized.
+
+## Growth Mechanism: Cursor AI OS
+Use the `zen-agent-skills os` CLI to record learnings and evolve agents.
+
+### 1. Record Successful Patterns
+When you find a code pattern that works particularly well for this project:
+```bash
+npx zen-agent-skills os record-success "pattern-name" "context-description"
+```
+
+### 2. Evolve Capabilities
+As you perform more tasks in a specific domain (e.g., performance), acknowledge your growth.
+
+## Core Growth Mechanisms
+
+1. **Usage Pattern Learning**: Remember what works.
+2. **Feedback Learning**: Adapt based on user acceptance.
+3. **Specialization**: Develop sub-expertise (Sub-Sub-Agents).
+
+## Tracking
+Agent evolution is tracked in `.cursor/memory/memory.json`. 
+Always check this file at the start of a session to load your "experience".
+
+## Best Practices
+- Record successes frequently.
+- Refer to previous successes when suggesting code.
+- Decompose into sub-sub-agents as your expertise in a domain grows.
