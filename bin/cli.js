@@ -8,6 +8,7 @@ import chalk from 'chalk';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const targetDir = process.cwd();
 const packageRulesDir = path.join(__dirname, '../.cursor/rules');
+const packageAgentsDir = path.join(__dirname, '../.cursor/agents');
 
 async function main() {
   console.log(chalk.cyan.bold('\n🚀 Zen Agent Skills Installer\n'));
@@ -24,7 +25,8 @@ async function main() {
     name: 'packs',
     message: 'Which skill packs would you like to install?',
     choices: [
-      { title: 'Personas Pack (@architect, @reviewer, @security, @ux)', value: 'personas', selected: true },
+      { title: 'Subagents Pack (/architect, /reviewer, /security, /debugger, etc.)', value: 'agents', selected: true },
+      { title: 'Personas Pack (@architect, @reviewer, @security, @ux) - Cursor Rules', value: 'personas', selected: true },
       { title: 'Vercel Performance Pack (49 rules)', value: 'performance', selected: audit.tech.includes('React') },
       { title: 'Claude Power Pack (Aesthetics & Meta-rules)', value: 'claude', selected: true },
       { title: 'Vercel Deploy Skill', value: 'deploy', selected: audit.tech.includes('Next.js') },
@@ -41,9 +43,23 @@ async function main() {
   // 3. Install
   console.log(chalk.blue('\nInstalling selected packs...'));
   const cursorRulesDir = path.join(targetDir, '.cursor/rules');
+  const cursorAgentsDir = path.join(targetDir, '.cursor/agents');
   await fs.ensureDir(cursorRulesDir);
+  
+  // Install Subagents if selected
+  if (response.packs.includes('agents')) {
+    await fs.ensureDir(cursorAgentsDir);
+    if (await fs.pathExists(packageAgentsDir)) {
+      await fs.copy(packageAgentsDir, cursorAgentsDir, { overwrite: true });
+      const agentFiles = await fs.readdir(packageAgentsDir);
+      console.log(`  ${chalk.green('✓')} ${chalk.white('Subagents')} pack installed (${agentFiles.length} agents).`);
+    }
+  }
 
+  // Install Rules Packs
   for (const pack of response.packs) {
+    if (pack === 'agents') continue; // Already handled above
+    
     const sourcePath = path.join(packageRulesDir, pack);
     if (await fs.pathExists(sourcePath)) {
       await fs.copy(sourcePath, cursorRulesDir, {
@@ -60,7 +76,11 @@ async function main() {
     await fs.copy(sectionsFile, path.join(cursorRulesDir, '_sections.mdc'));
   }
 
-  console.log(chalk.cyan.bold('\n✨ Success! Your Cursor rules are now powered up.\n'));
+  console.log(chalk.cyan.bold('\n✨ Success! Your Cursor is now powered up with rules and subagents.\n'));
+  
+  if (response.packs.includes('agents')) {
+    console.log(chalk.gray('💡 Tip: Use /agent-name syntax to invoke subagents (e.g., /architect, /reviewer, /debugger)'));
+  }
 }
 
 async function performAudit() {
