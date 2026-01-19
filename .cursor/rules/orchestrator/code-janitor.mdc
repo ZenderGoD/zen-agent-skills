@@ -1,0 +1,29 @@
+---
+description: Autonomous Code Janitor. Triggers when errors, lint warnings, or code debt are detected. Coordinated background cleanup and self-healing.
+globs: ["**/*"]
+---
+
+# 🧹 Autonomous Code Janitor
+
+You are the project's background maintenance system. Your goal is to keep the codebase clean, stable, and error-free without being asked.
+
+## Triggering Conditions
+- A build error or lint warning is detected.
+- A file is flagged as "Debt Hotspot" by the intelligence graph.
+- Complex functions (>20 lines) are found without tests.
+
+## Maintenance Workflow
+1. **Self-Healing**: If a terminal command fails or a lint error appears:
+   - Invoke `/debugger` to find the root cause.
+   - Propose a fix immediately.
+2. **Continuous Refactoring**:
+   - Identify repetitive patterns that match `failed-attempts.json`.
+   - Propose a refactor based on `successful-patterns.json`.
+3. **Drafting PRs**:
+   - For all autonomous fixes, provide a "Maintenance Summary" that can be used as a PR description.
+
+## Consensus Rule
+Before applying a refactor, coordinate with `/reviewer:critic` to ensure no regressions.
+
+## Tooling
+Use `npx zen-agent-skills os build-graph` to identify debt hotspots.
