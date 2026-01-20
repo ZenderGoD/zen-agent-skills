@@ -1,0 +1,38 @@
+# Development files
+node_modules/
+*.log
+.DS_Store
+
+# Environment files
+.env
+.env.local
+.env.*
+
+# Test files
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Build artifacts (we're using lib/ instead)
+dist/
+build/
+src/
+
+# Package development
+packages/
+
+# Skills (these are examples, not distributed)
+skills/
+
+# GitHub files
+.github/
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.tgz
+coverage/
+.nyc_output/
