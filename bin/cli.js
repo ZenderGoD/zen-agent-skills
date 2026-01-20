@@ -74,23 +74,25 @@ async function main() {
   console.log(`  - Tech detected: ${chalk.white(audit.tech.join(', ') || 'General')}\n`);
 
   // 2. Select Packs
+  console.log(chalk.gray('💡 Use SPACE to select/deselect, ENTER to confirm, A to toggle all\n'));
+  
   const response = await prompts({
     type: 'multiselect',
     name: 'packs',
     message: 'Which skill packs would you like to install?',
     choices: [
-      { title: 'Subagents Pack (/architect, /reviewer, /security, /debugger, etc.)', value: 'agents', selected: true },
-      { title: 'Sub-Sub-Agents (Hierarchical specialization)', value: 'sub-agents', selected: true },
-      { title: 'Personas Pack (@architect, @reviewer, @security, @ux) - Cursor Rules', value: 'personas', selected: true },
+      { title: 'Subagents Pack (/architect, /reviewer, /security, /debugger, etc.)', value: 'agents', selected: false },
+      { title: 'Sub-Sub-Agents (Hierarchical specialization)', value: 'sub-agents', selected: false },
+      { title: 'Personas Pack (@architect, @reviewer, @security, @ux) - Cursor Rules', value: 'personas', selected: false },
       { title: 'Vercel Performance Pack (49 rules)', value: 'performance', selected: audit.tech.includes('React') },
-      { title: 'Claude Power Pack (Aesthetics & Meta-rules)', value: 'claude', selected: true },
-      { title: 'Multi-Agent Orchestrator', value: 'orchestrator', selected: true },
-      { title: 'Learning & Memory System', value: 'memory', selected: true },
-      { title: 'Codebase Intelligence', value: 'intelligence', selected: true },
+      { title: 'Claude Power Pack (Aesthetics & Meta-rules)', value: 'claude', selected: false },
+      { title: 'Multi-Agent Orchestrator', value: 'orchestrator', selected: false },
+      { title: 'Learning & Memory System', value: 'memory', selected: false },
+      { title: 'Codebase Intelligence', value: 'intelligence', selected: false },
       { title: 'Vercel Deploy Skill', value: 'deploy', selected: audit.tech.includes('Next.js') },
-      { title: 'Web Design Audit Skill', value: 'design', selected: true },
+      { title: 'Web Design Audit Skill', value: 'design', selected: false },
     ],
-    instructions: false
+    hint: '- Space to select. Return to submit'
   });
 
   if (!response.packs || response.packs.length === 0) {

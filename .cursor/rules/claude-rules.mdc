@@ -1,0 +1,23 @@
+---
+description: Guidance on writing effective Cursor rules and instructions. Triggered by "create a rule", "write an instruction", "how to configure Cursor", or "add a new rule".
+globs: ["**/*.mdc", ".cursor/rules/**/*"]
+---
+# Writing Effective Cursor Rules
+
+Rules should be clear, action-oriented, and provide immediate value when triggered.
+
+## Rule Structure
+- **Name**: kebab-case, descriptive (e.g., `warn-dangerous-rm`).
+- **Description**: Clear trigger phrases.
+- **Globs**: Specific file patterns to avoid over-triggering.
+
+## Best Practices
+1. **Explain the Detection**: What pattern was found?
+2. **Explain the Risk**: Why is it problematic? (Performance, security, maintainability).
+3. **Suggest Alternatives**: Provide the "Better Way".
+4. **Actionable Instructions**: Tell the AI exactly what to do or check.
+
+## Triggering Logic
+- Use `prompt` events for high-level process enforcement.
+- Use `file` events for specific code patterns (e.g., `console.log`, `eval`).
+- Use `bash` events for preventing dangerous terminal commands.
