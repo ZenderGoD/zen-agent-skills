@@ -73,8 +73,15 @@ npx zen-agent-skills os record-success "..."  # Save a project-winning pattern
 
 Transform your IDE in seconds. Run this in your project root:
 
+### Install from GitHub
 ```bash
 npx github:ZenderGoD/zen-agent-skills
+```
+
+**Note**: This package is currently hosted on GitHub. To use `npx zen-agent-skills` directly (without `github:`), publish to npm first:
+```bash
+npm login
+npm publish
 ```
 
 **The installer will audit your project and let you select:**
@@ -103,6 +110,29 @@ We welcome contributions to grow this ecosystem!
 *   Add new **Sub-Sub-Agents**
 *   Define new **YAML Workflows**
 *   Improve **Performance Rules**
+
+---
+
+## 📦 Publishing to npm
+
+To make this package available via `npx zen-agent-skills`:
+
+1. **Login to npm**:
+   ```bash
+   npm login
+   ```
+
+2. **Publish the package**:
+   ```bash
+   npm publish
+   ```
+
+3. **Users can then install directly**:
+   ```bash
+   npx zen-agent-skills
+   ```
+
+**Current Status**: Package is hosted on GitHub. Use `npx github:ZenderGoD/zen-agent-skills` for installation.
 
 ---
 
